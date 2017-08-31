@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTOPlanner.Data", "PTOPlann
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTOPlanner.Repository", "PTOPlanner.Repository\PTOPlanner.Repository.csproj", "{CD19BCA0-7FDE-4CE0-94D5-32C07B00F3C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTOPlanner.Web", "PTOPlanner.Web\PTOPlanner.Web.csproj", "{3655335E-9765-4690-B140-C97E7DB3879D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CD19BCA0-7FDE-4CE0-94D5-32C07B00F3C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD19BCA0-7FDE-4CE0-94D5-32C07B00F3C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD19BCA0-7FDE-4CE0-94D5-32C07B00F3C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3655335E-9765-4690-B140-C97E7DB3879D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3655335E-9765-4690-B140-C97E7DB3879D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3655335E-9765-4690-B140-C97E7DB3879D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3655335E-9765-4690-B140-C97E7DB3879D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
