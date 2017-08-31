@@ -24,6 +24,8 @@ namespace PTOPlanner.Repository.AutoMapper
                 cfg.CreateMap<Employee_Info, Domain.User>();
                 cfg.CreateMap<Domain.PayrollSchedule, PayrollSchedule>();
                 cfg.CreateMap<PayrollSchedule, Domain.PayrollSchedule>();
+                cfg.CreateMap<Domain.EmployeePTOBalance, EmployeePTOBalance>();
+                cfg.CreateMap<EmployeePTOBalance, Domain.EmployeePTOBalance>();
             });
         }
 

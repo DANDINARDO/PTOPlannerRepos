@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\EmployeePTOBalance.cs" />
     <Compile Include="Entities\Employee_Info.cs" />
     <Compile Include="Entities\PayrollSchedule.cs" />
     <Compile Include="Entities\PTOPlanner.cs" />

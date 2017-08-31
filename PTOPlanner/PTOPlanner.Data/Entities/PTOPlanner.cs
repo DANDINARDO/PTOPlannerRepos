@@ -26,7 +26,7 @@ namespace PTOPlanner.Data.Entities
 
         public virtual DbSet<Employee_Info> Employee_Info { get; set; }
         public virtual DbSet<PayrollSchedule> PayrollSchedule { get; set; }
-
+        public virtual DbSet<EmployeePTOBalance> EmployeePTOBalance { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
