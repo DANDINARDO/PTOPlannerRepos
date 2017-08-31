@@ -1,0 +1,10 @@
+c:\Projects\PTOPlanner\PTOPlanner.Data\bin\Debug\PTOPlanner.Data.dll.config
+c:\Projects\PTOPlanner\PTOPlanner.Data\bin\Debug\PTOPlanner.Data.dll
+c:\Projects\PTOPlanner\PTOPlanner.Data\bin\Debug\PTOPlanner.Data.pdb
+c:\Projects\PTOPlanner\PTOPlanner.Data\bin\Debug\EntityFramework.dll
+c:\Projects\PTOPlanner\PTOPlanner.Data\bin\Debug\EntityFramework.SqlServer.dll
+c:\Projects\PTOPlanner\PTOPlanner.Data\bin\Debug\EntityFramework.xml
+c:\Projects\PTOPlanner\PTOPlanner.Data\bin\Debug\EntityFramework.SqlServer.xml
+c:\Projects\PTOPlanner\PTOPlanner.Data\obj\Debug\PTOPlanner.Data.csprojResolveAssemblyReference.cache
+c:\Projects\PTOPlanner\PTOPlanner.Data\obj\Debug\PTOPlanner.Data.dll
+c:\Projects\PTOPlanner\PTOPlanner.Data\obj\Debug\PTOPlanner.Data.pdb
