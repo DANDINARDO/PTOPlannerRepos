@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<ul class="nav nav-pills">
+    <li><a  onclick="selectYear(this);"data-toggle="pill" href="#">@(DateTime.Now.Year - 1)</a></li>
+    <li class="active"><a onclick="selectYear(this);" data-toggle="pill" href="#">@DateTime.Now.Year</a></li>
+    <li><a data-toggle="pill" onclick="selectYear(this);" href="#">@(DateTime.Now.Year + 1)</a></li>
+    <li><a data-toggle="pill" onclick="selectYear(this);" href="#">@(DateTime.Now.Year + 2)</a></li>
+</ul>
+
+<hr/>
+
+<div class="container ptoDetail">
+    <div class="row">
+        <div class="col-xs-2">
+            <strong>Week ending</strong>
+        </div>
+        <div class="col-xs-2">
+            <strong>Balance</strong>
+        </div>
+        <div class="col-xs-2">
+            <strong>Planned/Taken</strong>
+        </div>
+        <div class="col-xs-5">
+            <strong>Comments / Notes</strong>
+        </div>
+        <div class="col-xs-1"></div>
+    </div>
+
+@for (int i = 0; i < 26; i++)
+{
+    <div class="row" data-unique-id="@i">
+        <div class="col-xs-2">
+            @(new DateTime(2017,1,14).AddDays(14 * i).ToShortDateString())
+
+        </div>
+        <div class="col-xs-2">
+            @(6.1539 + (i * 6.1539))
+        </div>
+        <div class="col-xs-2">
+            <input type="text" class="planned" placeholder="[Enter in Hours]" style="border: 1px solid lightsteelblue;">
+        </div>
+        <div class="col-xs-5">
+            <input type="text" class="comment-box" style="border: 1px solid lightsteelblue;" placeholder="[Enter options comments]" />
+        </div>
+        <div class="col-xs-1">
+            <button class="btn btn-default save-hours" type="button"><span class="glyphicon glyphicon-ok" style="color: green;" title="Apply Changes"></span> Save</button>
+        </div>
+    </div>
+}
+</div>
+
+@section scripts {
+    <script src="~/App/pto.js"></script>
+}
