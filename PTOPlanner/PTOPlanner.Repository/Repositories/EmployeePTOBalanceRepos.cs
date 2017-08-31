@@ -27,7 +27,7 @@ namespace PTOPlanner.Repository.Repositories
             return ReposGetEmployeePTOBalanceByEmployeeId(EmployeeId);
         }
 
-        public List<Domain.EmployeePTOBalance> UpdateEmployeePTOBalance(EmployeePTOBalanceRequest balanceRequest)
+        public List<Domain.EmployeePTOBalance> UpdateEmployeePTOBalance(EmployeePTOBalanceUpdateRequest balanceRequest)
         {
             return ReposUpdateEmployeePTOBalance(balanceRequest);
         }
@@ -57,11 +57,8 @@ namespace PTOPlanner.Repository.Repositories
             return ptoBalance;
         }
 
-        private List<Domain.EmployeePTOBalance> ReposUpdateEmployeePTOBalance(EmployeePTOBalanceRequest balanceRequest)
+        private List<Domain.EmployeePTOBalance> ReposUpdateEmployeePTOBalance(EmployeePTOBalanceUpdateRequest balanceRequest)
         {
-            //var lstEmployeePTOBalance = new List<Data.Entities.EmployeePTOBalance>();
-            //var ptoBalance = _mapper.Map<List<Data.Entities.EmployeePTOBalance>, List<Domain.EmployeePTOBalance>>(lstEmployeePTOBalance);
-            //return ptoBalance;
             var lstEmployeePTOBalance = _dbContext.EmployeePTOBalance.ToList();
             var ptoBalance = _mapper.Map<List<Data.Entities.EmployeePTOBalance>, List<Domain.EmployeePTOBalance>>(lstEmployeePTOBalance);
             return ptoBalance;

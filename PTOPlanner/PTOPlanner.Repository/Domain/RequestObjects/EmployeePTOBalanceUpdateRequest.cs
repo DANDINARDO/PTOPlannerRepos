@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PTOPlanner.Repository.Domain.RequestObjects
 {
-    public class EmployeePTOBalanceRequest
+    public class EmployeePTOBalanceUpdateRequest
     {
         public int EmployeeId { get; set; }
         public DateTime Weekend { get; set; }
