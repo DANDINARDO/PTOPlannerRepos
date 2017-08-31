@@ -8,3 +8,13 @@ c:\Projects\PTOPlanner\PTOPlanner.Repository\obj\Debug\PTOPlanner.Repository.pdb
 c:\Projects\PTOPlanner\PTOPlanner.Repository\bin\Debug\EntityFramework.xml
 c:\Projects\PTOPlanner\PTOPlanner.Repository\bin\Debug\AutoMapper.dll
 c:\Projects\PTOPlanner\PTOPlanner.Repository\bin\Debug\AutoMapper.xml
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Repository\bin\Debug\PTOPlanner.Repository.dll
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Repository\bin\Debug\PTOPlanner.Repository.pdb
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Repository\bin\Debug\AutoMapper.dll
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Repository\bin\Debug\PTOPlanner.Data.dll
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Repository\bin\Debug\PTOPlanner.Data.pdb
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Repository\bin\Debug\AutoMapper.xml
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Repository\bin\Debug\EntityFramework.xml
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Repository\obj\Debug\PTOPlanner.Repository.csprojResolveAssemblyReference.cache
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Repository\obj\Debug\PTOPlanner.Repository.dll
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Repository\obj\Debug\PTOPlanner.Repository.pdb

@@ -8,3 +8,13 @@ c:\Projects\PTOPlanner\PTOPlanner.Data\bin\Debug\EntityFramework.SqlServer.xml
 c:\Projects\PTOPlanner\PTOPlanner.Data\obj\Debug\PTOPlanner.Data.csprojResolveAssemblyReference.cache
 c:\Projects\PTOPlanner\PTOPlanner.Data\obj\Debug\PTOPlanner.Data.dll
 c:\Projects\PTOPlanner\PTOPlanner.Data\obj\Debug\PTOPlanner.Data.pdb
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Data\bin\Debug\PTOPlanner.Data.dll.config
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Data\bin\Debug\PTOPlanner.Data.dll
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Data\bin\Debug\PTOPlanner.Data.pdb
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Data\bin\Debug\EntityFramework.dll
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Data\bin\Debug\EntityFramework.xml
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Data\obj\Debug\PTOPlanner.Data.csprojResolveAssemblyReference.cache
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Data\obj\Debug\PTOPlanner.Data.dll
+C:\Projects\PTOPlanner\PTOPlannerRepos\PTOPlanner\PTOPlanner.Data\obj\Debug\PTOPlanner.Data.pdb

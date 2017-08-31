@@ -46,9 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
+    <Compile Include="Domain\PayrollSchedule.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Interfaces\IUserRepos.cs" />
+    <Compile Include="Repositories\Interfaces\IPayrollScheduleRepos.cs" />
     <Compile Include="Repositories\PayrollScheduleRepos.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\UserRepos.cs" />

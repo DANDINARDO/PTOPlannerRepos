@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace PTOPlanner.Data.Entities
 {
     using System;
@@ -6,6 +8,7 @@ namespace PTOPlanner.Data.Entities
     [Table("Employee.Employee_Info")]
     public partial class Employee_Info
     {
+        [Key]
         public int Employee_ID { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
