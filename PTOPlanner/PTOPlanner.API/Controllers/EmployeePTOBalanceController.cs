@@ -60,9 +60,9 @@ namespace PTOPlanner.API.Controllers
         /// </summary>
         /// <returns>List of EmployeePTOBalance Object</returns>
         [HttpPost]
-        public IEnumerable<EmployeePTOBalance> UpdateEmployeePTOBalance(EmployeePTOBalanceRequest employeePTOBalanceRequest)
+        public IEnumerable<EmployeePTOBalance> UpdateEmployeePTOBalance(EmployeePTOBalanceUpdateRequest employeePTOBalanceUpdateRequest)
         {
-            var employeePTOBalances = _employeePTOBalanceController.UpdateEmployeePTOBalance(employeePTOBalanceRequest);
+            var employeePTOBalances = _employeePTOBalanceController.UpdateEmployeePTOBalance(employeePTOBalanceUpdateRequest);
             if (employeePTOBalances == null || employeePTOBalances.Count == 0) throw new HttpResponseException(HttpStatusCode.NoContent);
             return employeePTOBalances;
         }
