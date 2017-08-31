@@ -6,7 +6,7 @@ using PTOPlanner.Repository.Domain;
 namespace PTOPlanner.Repository.Repositories
 {
     public class PayrollScheduleRepos : RepositoryBase 
-    {
+    { 
 
         //#region Public Methods
 
