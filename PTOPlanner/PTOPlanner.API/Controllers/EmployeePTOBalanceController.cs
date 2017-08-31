@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using PTOPlanner.Repository.Domain;
+using PTOPlanner.Repository.Domain.RequestObjects;
 using PTOPlanner.Repository.Repositories;
 
 namespace PTOPlanner.API.Controllers
@@ -50,6 +51,18 @@ namespace PTOPlanner.API.Controllers
         public IEnumerable<EmployeePTOBalance> GetByEmployeeId(int Id)
         {
             var employeePTOBalances = _employeePTOBalanceController.GetEmployeePTOBalanceByEmployeeId(Id);
+            if (employeePTOBalances == null || employeePTOBalances.Count == 0) throw new HttpResponseException(HttpStatusCode.NoContent);
+            return employeePTOBalances;
+        }
+
+        /// <summary>
+        /// Get EmployeePTOBalances by Request Object
+        /// </summary>
+        /// <returns>List of EmployeePTOBalance Object</returns>
+        [HttpPost]
+        public IEnumerable<EmployeePTOBalance> UpdateEmployeePTOBalance(EmployeePTOBalanceRequest employeePTOBalanceRequest)
+        {
+            var employeePTOBalances = _employeePTOBalanceController.UpdateEmployeePTOBalance(employeePTOBalanceRequest);
             if (employeePTOBalances == null || employeePTOBalances.Count == 0) throw new HttpResponseException(HttpStatusCode.NoContent);
             return employeePTOBalances;
         }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PTOPlanner.Data.Entities;
+using PTOPlanner.Repository.Domain.RequestObjects;
 
 namespace PTOPlanner.Repository.Repositories
 {
@@ -23,6 +25,11 @@ namespace PTOPlanner.Repository.Repositories
         public List<Domain.EmployeePTOBalance> GetEmployeePTOBalanceByEmployeeId(int EmployeeId)
         {
             return ReposGetEmployeePTOBalanceByEmployeeId(EmployeeId);
+        }
+
+        public List<Domain.EmployeePTOBalance> UpdateEmployeePTOBalance(EmployeePTOBalanceRequest balanceRequest)
+        {
+            return ReposUpdateEmployeePTOBalance(balanceRequest);
         }
 
         #endregion
@@ -46,6 +53,16 @@ namespace PTOPlanner.Repository.Repositories
         private List<Domain.EmployeePTOBalance> ReposGetEmployeePTOBalanceByEmployeeId(int EmployeeId)
         {
             var lstEmployeePTOBalance = _dbContext.EmployeePTOBalance.Where(x => x.EmployeeID == EmployeeId).ToList();
+            var ptoBalance = _mapper.Map<List<Data.Entities.EmployeePTOBalance>, List<Domain.EmployeePTOBalance>>(lstEmployeePTOBalance);
+            return ptoBalance;
+        }
+
+        private List<Domain.EmployeePTOBalance> ReposUpdateEmployeePTOBalance(EmployeePTOBalanceRequest balanceRequest)
+        {
+            //var lstEmployeePTOBalance = new List<Data.Entities.EmployeePTOBalance>();
+            //var ptoBalance = _mapper.Map<List<Data.Entities.EmployeePTOBalance>, List<Domain.EmployeePTOBalance>>(lstEmployeePTOBalance);
+            //return ptoBalance;
+            var lstEmployeePTOBalance = _dbContext.EmployeePTOBalance.ToList();
             var ptoBalance = _mapper.Map<List<Data.Entities.EmployeePTOBalance>, List<Domain.EmployeePTOBalance>>(lstEmployeePTOBalance);
             return ptoBalance;
         }
