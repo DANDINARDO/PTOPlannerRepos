@@ -29,5 +29,17 @@ namespace PTOPlanner.API.Controllers
             if (employeePTOBalances == null || employeePTOBalances.Count == 0) throw new HttpResponseException(HttpStatusCode.NoContent);
             return employeePTOBalances;
         }
+
+        /// <summary>
+        /// Get EmployeePTOBalances By Id
+        /// </summary>
+        /// <returns>EmployeePTOBalance Object</returns>
+        [HttpGet]
+        public EmployeePTOBalance Get(int Id)
+        {
+            var employeePTOBalance = _employeePTOBalanceController.GetEmployeePTOBalance(Id);
+            if (employeePTOBalance == null) throw new HttpResponseException(HttpStatusCode.NoContent);
+            return employeePTOBalance;
+        }
     }
 }

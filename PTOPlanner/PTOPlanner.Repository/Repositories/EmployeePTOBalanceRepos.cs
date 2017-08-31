@@ -33,7 +33,7 @@ namespace PTOPlanner.Repository.Repositories
 
         private Domain.EmployeePTOBalance ReposGetEmployeePTOBalance(int Id)
         {
-            var employeePTOBalance = _dbContext.EmployeePTOBalance.FirstOrDefault(x => x.EmployeeID == Id);
+            var employeePTOBalance = _dbContext.EmployeePTOBalance.FirstOrDefault(x => x.EmployeePTOBalanceID == Id);
             var ptoBalance = _mapper.Map<Data.Entities.EmployeePTOBalance, Domain.EmployeePTOBalance>(employeePTOBalance);
             return ptoBalance;
         }
