@@ -35,11 +35,23 @@ namespace PTOPlanner.API.Controllers
         /// </summary>
         /// <returns>EmployeePTOBalance Object</returns>
         [HttpGet]
-        public EmployeePTOBalance Get(int Id)
+        public EmployeePTOBalance GetById(int Id)
         {
-            var employeePTOBalance = _employeePTOBalanceController.GetEmployeePTOBalance(Id);
+            var employeePTOBalance = _employeePTOBalanceController.GetEmployeePTOBalanceById(Id);
             if (employeePTOBalance == null) throw new HttpResponseException(HttpStatusCode.NoContent);
             return employeePTOBalance;
+        }
+
+        /// <summary>
+        /// Get EmployeePTOBalances By EmployeeId
+        /// </summary>
+        /// <returns>EmployeePTOBalance Object</returns>
+        [HttpGet]
+        public IEnumerable<EmployeePTOBalance> GetByEmployeeId(int Id)
+        {
+            var employeePTOBalances = _employeePTOBalanceController.GetEmployeePTOBalanceByEmployeeId(Id);
+            if (employeePTOBalances == null || employeePTOBalances.Count == 0) throw new HttpResponseException(HttpStatusCode.NoContent);
+            return employeePTOBalances;
         }
     }
 }
