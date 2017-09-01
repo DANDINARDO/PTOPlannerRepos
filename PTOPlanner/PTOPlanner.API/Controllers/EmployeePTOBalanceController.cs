@@ -56,15 +56,33 @@ namespace PTOPlanner.API.Controllers
         }
 
         /// <summary>
-        /// Get EmployeePTOBalances by Request Object
+        /// Get EmployeePTOBalances By EmployeeId
         /// </summary>
-        /// <returns>List of EmployeePTOBalance Object</returns>
-        [HttpPost]
-        public IEnumerable<EmployeePTOBalance> UpdateEmployeePTOBalance(EmployeePTOBalanceUpdateRequest employeePTOBalanceUpdateRequest)
+        /// <returns>EmployeePTOBalance Object</returns>
+        [HttpGet]
+        public IEnumerable<EmployeePTOBalance> GetBySPROC(int employeeId, int year)
         {
-            var employeePTOBalances = _employeePTOBalanceController.UpdateEmployeePTOBalance(employeePTOBalanceUpdateRequest);
+            var employeePTOBalances = _employeePTOBalanceController.GetEmployeePTOBalanceBySPROC(employeeId, year);
             if (employeePTOBalances == null || employeePTOBalances.Count == 0) throw new HttpResponseException(HttpStatusCode.NoContent);
             return employeePTOBalances;
+        }
+
+        /// <summary>
+        /// Update EmployeePTOBalance
+        /// </summary>
+        /// <returns>List of EmployeePTOBalance Object</returns>
+        [HttpPut]
+        public HttpResponseMessage UpdateEmployeePTOBalance(int Id, PTOBalanceUpdateRequest ptoBalanceUpdateRequest)
+        {
+            try
+            {
+                _employeePTOBalanceController.UpdateEmployeePTOBalance(Id, ptoBalanceUpdateRequest);
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            }
+            catch (Exception ex)
+            {
+                return new HttpResponseMessage(HttpStatusCode.InternalServerError);
+            }
         }
     }
 }

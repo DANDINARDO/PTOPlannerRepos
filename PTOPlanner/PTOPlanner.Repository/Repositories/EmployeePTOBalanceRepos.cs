@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations.Model;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,9 +29,14 @@ namespace PTOPlanner.Repository.Repositories
             return ReposGetEmployeePTOBalanceByEmployeeId(EmployeeId);
         }
 
-        public List<Domain.EmployeePTOBalance> UpdateEmployeePTOBalance(EmployeePTOBalanceUpdateRequest balanceRequest)
+        public void UpdateEmployeePTOBalance(int Id, PTOBalanceUpdateRequest ptoBalanceUpdateRequest)
         {
-            return ReposUpdateEmployeePTOBalance(balanceRequest);
+            ReposUpdateEmployeePTOBalanceSPROC(Id, ptoBalanceUpdateRequest);
+        }
+
+        public List<Domain.EmployeePTOBalance> GetEmployeePTOBalanceBySPROC(int employeeId, int year)
+        {
+            return ReposGetEmployeePTOBalanceBySPROC(employeeId, year);
         }
 
         #endregion
@@ -53,14 +60,26 @@ namespace PTOPlanner.Repository.Repositories
         private List<Domain.EmployeePTOBalance> ReposGetEmployeePTOBalanceByEmployeeId(int EmployeeId)
         {
             var lstEmployeePTOBalance = _dbContext.EmployeePTOBalance.Where(x => x.EmployeeID == EmployeeId).ToList();
-            var ptoBalance = _mapper.Map<List<Data.Entities.EmployeePTOBalance>, List<Domain.EmployeePTOBalance>>(lstEmployeePTOBalance);
+            var ptoBalance = _mapper.Map<List<EmployeePTOBalance>, List<Domain.EmployeePTOBalance>>(lstEmployeePTOBalance);
             return ptoBalance;
         }
 
-        private List<Domain.EmployeePTOBalance> ReposUpdateEmployeePTOBalance(EmployeePTOBalanceUpdateRequest balanceRequest)
+        private void ReposUpdateEmployeePTOBalanceSPROC(int Id, PTOBalanceUpdateRequest ptoBalanceUpdateRequest)
         {
-            var lstEmployeePTOBalance = _dbContext.EmployeePTOBalance.ToList();
-            var ptoBalance = _mapper.Map<List<Data.Entities.EmployeePTOBalance>, List<Domain.EmployeePTOBalance>>(lstEmployeePTOBalance);
+            SqlParameter employeeptobalanceid = new SqlParameter("@EmployeePTOBalanceId", Id);
+            SqlParameter hrstaken = new SqlParameter("@HrsTaken", ptoBalanceUpdateRequest.HrsTaken);
+            SqlParameter comments = new SqlParameter("@Comments", ptoBalanceUpdateRequest.Comments);
+
+            _dbContext.Database.ExecuteSqlCommand("dbo.EmpPTOBalance_Update @EmployeePTOBalanceId, @HrsTaken, @Comments", employeeptobalanceid, hrstaken, comments);
+        }
+
+        private List<Domain.EmployeePTOBalance> ReposGetEmployeePTOBalanceBySPROC(int employeeId, int year)
+        {
+            SqlParameter EmployeeId = new SqlParameter("@EmployeeId", employeeId);
+            SqlParameter Year = new SqlParameter("@Year", year);
+
+            var lstEmployeePTOBalance = _dbContext.Database.SqlQuery<CTEmployeePTOBalance>("dbo.EmpPTOBalanceByYear_Get @EmployeeId, @Year", EmployeeId, Year).ToList();
+            var ptoBalance = _mapper.Map<List<Data.Entities.CTEmployeePTOBalance>, List<Domain.EmployeePTOBalance>>(lstEmployeePTOBalance);
             return ptoBalance;
         }
 

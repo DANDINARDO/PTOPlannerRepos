@@ -48,7 +48,8 @@
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="Domain\EmployeePTOBalance.cs" />
     <Compile Include="Domain\PayrollSchedule.cs" />
-    <Compile Include="Domain\RequestObjects\EmployeePTOBalanceUpdateRequest.cs" />
+    <Compile Include="Domain\RequestObjects\PTOBalanceRequest.cs" />
+    <Compile Include="Domain\RequestObjects\PTOBalanceUpdateRequest.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EmployeePTOBalanceRepos.cs" />

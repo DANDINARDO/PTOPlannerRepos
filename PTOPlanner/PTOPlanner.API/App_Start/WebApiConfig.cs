@@ -21,6 +21,12 @@ namespace PTOPlanner.API
             );
 
             config.Routes.MapHttpRoute(
+                name: "RouteEmployeePTOBalance_GetBySPROC",
+                routeTemplate: "api/EmployeePTOBalance/GetBySPROC/{employeeId}/{year}",
+                defaults: new { employeeId = RouteParameter.Optional, year = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

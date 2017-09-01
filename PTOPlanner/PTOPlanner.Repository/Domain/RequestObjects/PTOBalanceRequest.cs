@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace PTOPlanner.Repository.Domain.RequestObjects
 {
-    public class EmployeePTOBalanceUpdateRequest
+    public class PTOBalanceRequest
     {
         public int EmployeeId { get; set; }
-        public DateTime Weekend { get; set; }
-        public decimal HrsTaken { get; set; }
-        public string Comments { get; set; }
+        public int Year { get; set; }
     }
 }

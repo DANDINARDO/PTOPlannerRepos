@@ -8,6 +8,7 @@ namespace PTOPlanner.Repository.Repositories
         List<Domain.EmployeePTOBalance> GetEmployeePTOBalance();
         Domain.EmployeePTOBalance GetEmployeePTOBalanceById(int Id);
         List<Domain.EmployeePTOBalance> GetEmployeePTOBalanceByEmployeeId(int EmployeeId);
-        List<Domain.EmployeePTOBalance> UpdateEmployeePTOBalance(EmployeePTOBalanceUpdateRequest balanceRequest);
+        void UpdateEmployeePTOBalance(int Id, PTOBalanceUpdateRequest ptoBalanceUpdateRequest);
+        List<Domain.EmployeePTOBalance> GetEmployeePTOBalanceBySPROC(int employeeId, int year);
     }
 }
