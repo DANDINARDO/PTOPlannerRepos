@@ -4,6 +4,7 @@ using PTOPlanner.Web.Models;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
+using PTOPlanner.Models;
 
 namespace PTOPlanner.Web.Repository
 {
@@ -15,6 +16,29 @@ namespace PTOPlanner.Web.Repository
         {
             _sqlCommunication = new SqlCommunication();
 
+        }
+
+        public IList<PTOData> Save(PTOEntry entry)
+        {
+            List<PTOData> updatedResults = new List<PTOData>();
+
+            var parameters = new Dictionary<string, object>
+            {
+                {"EmployeePTOBalanceID", entry.Id },
+                {"HrsTaken", entry.Hours},
+                {"Comments", entry.Comments ?? "" }
+            };
+
+            var _sqlExecution = new SqlExecution();
+            using (var dro = SetupDataRequestObject("EmpPTOBalance_Update", parameters))
+            {
+                using (var reader = _sqlExecution.ExecuteReader(dro.SqlComm))
+                {
+                    LoadFromReader(reader, updatedResults);
+                }
+            }
+
+            return updatedResults;
         }
 
         public IList<PTOData> LoadYear(int empId, int year)
@@ -31,22 +55,27 @@ namespace PTOPlanner.Web.Repository
             {
                 using (var reader = _sqlExecution.ExecuteReader(dro.SqlComm))
                 {
-                    while (reader.Read())
-                    {
-                        var ptoRow = new PTOData()
-                        {
-                            Comments = reader["Comments"].ToString(),
-                            WeekEnding = Convert.ToDateTime(reader["WeekEnding"]).ToShortDateString(),
-                            RequestedHours = (decimal)reader["RequestedHours"],
-                            EmployeePTOBalanceID = Convert.ToInt32(reader["EmployeePTOBalanceID"]),
-                            EmployeeID = Convert.ToInt32(reader["EmployeeID"]),
-                            PTOBalance = (decimal)reader["PTOBalance"]
-                        };
-                        results.Add(ptoRow);
-                    }
+                    LoadFromReader(reader, results);
                 }
             }
             return results;
+        }
+
+        private void LoadFromReader(IDataReader reader, IList<PTOData> results)
+        {
+            while (reader.Read())
+            {
+                var ptoRow = new PTOData()
+                {
+                    Comments = reader["Comments"].ToString(),
+                    WeekEnding = Convert.ToDateTime(reader["WeekEnding"]).ToShortDateString(),
+                    RequestedHours = (decimal)reader["RequestedHours"],
+                    EmployeePTOBalanceID = Convert.ToInt32(reader["EmployeePTOBalanceID"]),
+                    EmployeeID = Convert.ToInt32(reader["EmployeeID"]),
+                    PTOBalance = (decimal)reader["PTOBalance"]
+                };
+                results.Add(ptoRow);
+            }
         }
 
         private DataRequestObject SetupDataRequestObject(string sqlText, Dictionary<string, object> parameters = null, Dictionary<string, object> outputParameters = null, int varcharSize = 500, CommandType commandType = CommandType.StoredProcedure)
