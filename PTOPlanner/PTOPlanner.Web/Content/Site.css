@@ -43,4 +43,14 @@
 
 .comment-box {
     width: 100%;
+    border: 1px solid lightsteelblue;
 }
+
+.planned {
+    border: 1px solid lightsteelblue;   
+}
+
+.save-hours {
+    color: green;
+}
+
