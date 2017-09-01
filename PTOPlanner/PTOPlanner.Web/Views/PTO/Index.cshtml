@@ -2,6 +2,9 @@
 @{
     ViewBag.Title = "Index";
 }
+@using PTOPlanner.Models
+
+@model IList<Employee>
 
 <ul class="nav nav-pills">
     <li><a  onclick="selectYear(this);"data-toggle="pill" href="#">@(DateTime.Now.Year - 1)</a></li>
@@ -10,7 +13,29 @@
     <li><a data-toggle="pill" onclick="selectYear(this);" href="#">@(DateTime.Now.Year + 2)</a></li>
 </ul>
 
-<hr/>
+<div class="row">
+    <div class="col-xs-4"><hr/></div>
+    <div class="col-xs-4">
+        <table class="table-condensed">
+            <tr>
+                <td><strong>Employee</strong></td>
+                <td>        
+                    <select id="ddlEmployee" class="form-control" onchange="changeEmployee(this);">
+                        <option value="">- Select -</option>
+                        @foreach (var emp in Model)
+                        {
+                            <option value="@emp.EmployeeID">@emp.LastName, @emp.FirstName</option>
+                        }
+                    </select>
+                </td>
+                <td>
+                    @Html.ActionLink("Register", "Index", "Register", null, new {@class = "btn btn-primary btn-xs"})
+                </td>
+            </tr>
+        </table>        
+    </div>
+    <div class="col-xs-4"><hr/></div>
+</div>
 
 <div class="container ptoDetail">
     <div class="row">

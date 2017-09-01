@@ -15,7 +15,10 @@ namespace PTOPlanner.Controllers
         // GET: PTO
         public ActionResult Index()
         {
-            return View();
+            var repo = new PTORepo();
+            var employees = repo.LoadEmployees();
+
+            return View(employees);
         }
 
         [HttpPost]
@@ -36,12 +39,12 @@ namespace PTOPlanner.Controllers
         }
 
         [HttpPost]
-        public JsonResult LoadYear(int year)
+        public JsonResult LoadYear(int year, int empId = 0)
         {
 
             var repo = new PTORepo();
 
-            var data = repo.LoadYear(1, year);
+            var data = repo.LoadYear(empId, year);
 
             var resultModel = new
             {

@@ -1,10 +1,20 @@
 ﻿$(function() {
-    selectYear($('.active'));
+    //selectYear($('.active'));
 
     $('body').on('click', '.save-hours', function () {
         savePayPeriod($(this).closest('.row'));
     });
 });
+
+function changeEmployee(selected) {
+    //alert(selected.value);
+    if (selected.value === '') {
+        $('.records').empty();
+        return;
+    }
+
+    selectYear($('.active'));
+}
 
 function selectYear(selected) {
 
@@ -12,9 +22,10 @@ function selectYear(selected) {
     $('.records').empty();
 
     var data = {
-        year: $(selected).text()
+        year: $(selected).text(),
+        empId: $('#ddlEmployee').val()
     };
-    console.log(selected);
+//    console.log(selected);
     $.ajax({
         url: 'PTO/LoadYear',
         type: 'POST',
@@ -59,9 +70,10 @@ function savePayPeriod(target) {
         type: 'POST',
         data: data
     }).done(function (response) {
-        $(response.Data).each(function() {
-            $('[data-unique-id="' + this.EmployeePTOBalanceID + '"]').find('.balance').text(this.PTOBalance);
-        });
+        selectYear($('.active'));
+        //$(response.Data).each(function() {
+        //    $('[data-unique-id="' + this.EmployeePTOBalanceID + '"]').find('.balance').text(this.PTOBalance);
+        //});
     }).fail(function () {
         alert('Sorry, save failed!');
     });

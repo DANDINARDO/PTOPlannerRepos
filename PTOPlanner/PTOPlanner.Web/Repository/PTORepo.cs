@@ -18,6 +18,53 @@ namespace PTOPlanner.Web.Repository
 
         }
 
+        public IList<Employee> LoadEmployees()
+        {
+            List<Employee> results = new List<Employee>();
+
+            var _sqlExecution = new SqlExecution();
+            using (var dro = SetupDataRequestObject("EmployeeInfo_GET"))
+            {
+                using (var reader = _sqlExecution.ExecuteReader(dro.SqlComm))
+                {
+                    while (reader.Read())
+                    {
+                        var e = new Employee();
+
+                        e.EmployeeID = Convert.ToInt32(reader["EmployeeID"]);
+                        e.FirstName = reader["FirstName"].ToString();
+                        e.LastName = reader["LastName"].ToString();
+
+                        results.Add(e);
+                    }
+                }
+            }
+            return results;
+        }
+
+        public void SaveEmployee(Employee employee)
+        {
+            var parameters = new Dictionary<string, object>
+            {
+                {"FirstName", employee.FirstName ?? "" },
+                {"LastName", employee.LastName ?? ""},
+                {"Email",employee.Email ?? "" },
+                {"LoginID", employee.FirstName + "." + employee.LastName },
+                {"Password", "password" },
+                {"StartDate",employee.StartDate },
+                {"AnnualPTODays", employee.AnnualPTODays },
+                {"CurrentPTOHrsBalance", employee.CurrentPTOHrsBalance },
+                {"PTOHrsAccrualRate", employee.PTOHrsAccrualRate },
+                {"MaxHrsCarryOver", employee.MaxHrsCarryOver }
+            };
+
+            var _sqlExecution = new SqlExecution();
+            using (var dro = SetupDataRequestObject("EmpPTODetails_Create", parameters))
+            {
+                _sqlExecution.ExecuteNonQuery(dro.SqlComm);
+            }
+        }
+
         public IList<PTOData> Save(PTOEntry entry)
         {
             List<PTOData> updatedResults = new List<PTOData>();

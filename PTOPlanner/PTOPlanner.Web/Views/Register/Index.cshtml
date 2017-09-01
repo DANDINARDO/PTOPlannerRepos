@@ -1,0 +1,48 @@
+﻿<div class="login-container">
+    <div class="row">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    User Registration
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("RegisterEmployee", "Register", FormMethod.Post))
+                    {
+                        <label>First Name</label>
+                        <input name="FirstName" id="FirstName" class="form-control" />
+
+                        <label>Last Name</label>
+                        <input name="LastName" id="LastName"  class="form-control" />
+
+                        <label>Email Address</label>
+                        <input name="Email" id="Email" type="email" class="form-control"/>
+
+                        <label>PTO Tracking Start Date</label>
+                        <input id="StartDate" name="StartDate" type="date" class="form-control start-date"/>
+
+                        <label>PTO Balance on Tracking Start Date</label>
+                        <input id="CurrentPTOHrsBalance" name="CurrentPTOHrsBalance" type="text" class="form-control remaining-pto" />
+
+                        <label>Days per year</label>
+                        <input id="AnnualPTODays" name="AnnualPTODays" type="text" class="form-control max-days"/>
+
+                        <label>Max carryover</label>
+                        <input id="MaxHrsCarryOver" name="MaxHrsCarryOver" type="text" class="form-control max-carryover"/>
+
+                        <label>Hours accured per pay period</label>
+                        <input id="PTOHrsAccrualRate" name="PTOHrsAccrualRate" type="text" class="form-control" />
+
+                        <br/>
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Register</button>
+                        <span>&nbsp; &nbsp; &nbsp; &nbsp;</span>
+                        @Html.ActionLink("Cancel", "Index", "PTO")
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+        </div>
+    </div>
+</div>
+
